@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "profilePicture": "profile.jpg",
+    "username": "adam_helmy",
+    "email": "adam.helmy@gmail.com",
+    "phoneNumber": "+20 100 554 3321",
+    "birthdate": "1992-04-12",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "profilePicture": "profile.jpg",
+    "username": "layla_samy",
+    "email": "layla.samy@outlook.com",
+    "phoneNumber": "+20 111 223 3344",
+    "birthdate": "1995-08-25",
+    "role": "moderator"
+  },
+  {
+    "id": 3,
+    "profilePicture": "profile.jpg",
+    "username": "yassin_taha",
+    "email": "yassin.t@yahoo.com",
+    "phoneNumber": "+20 122 887 6655",
+    "birthdate": "1988-11-30",
+    "role": "user"
+  },
+  {
+    "id": 4,
+    "profilePicture": "profile.jpg",
+    "username": "farida_nour",
+    "email": "farida.n@gmail.com",
+    "phoneNumber": "+20 106 778 9900",
+    "birthdate": "1997-02-14",
+    "role": "user"
+  },
+  {
+    "id": 5,
+    "profilePicture": "profile.jpg",
+    "username": "mostafa_gad",
+    "email": "m.gad@outlook.com",
+    "phoneNumber": "+20 115 443 2211",
+    "birthdate": "1990-06-05",
+    "role": "moderator"
+  },
+  {
+    "id": 6,
+    "profilePicture": "profile.jpg",
+    "username": "reem_hassan",
+    "email": "reem.h@gmail.com",
+    "phoneNumber": "+20 109 112 3344",
+    "birthdate": "2000-09-20",
+    "role": "user"
+  },
+  {
+    "id": 7,
+    "profilePicture": "profile.jpg",
+    "username": "karim_abdel",
+    "email": "karim.a@yahoo.com",
+    "phoneNumber": "+20 128 445 6677",
+    "birthdate": "1985-03-10",
+    "role": "admin"
+  },
+  {
+    "id": 8,
+    "profilePicture": "profile.jpg",
+    "username": "jana_magdy",
+    "email": "jana.m@outlook.com",
+    "phoneNumber": "+20 114 667 8899",
+    "birthdate": "1998-12-22",
+    "role": "user"
+  },
+  {
+    "id": 9,
+    "profilePicture": "profile.jpg",
+    "username": "hamza_omar",
+    "email": "hamza.o@gmail.com",
+    "phoneNumber": "+20 101 998 7766",
+    "birthdate": "1993-07-17",
+    "role": "moderator"
+  },
+  {
+    "id": 10,
+    "profilePicture": "profile.jpg",
+    "username": "malak_idris",
+    "email": "malak.i@yahoo.com",
+    "phoneNumber": "+20 120 556 4433",
+    "birthdate": "1996-05-08",
+    "role": "user"
+  }
+]
