@@ -1,0 +1,15 @@
+
+.app-product-card-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.app-product-card-sub {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+}
+
+.btn.btn-primary {
+  border-radius: 8px;
+}

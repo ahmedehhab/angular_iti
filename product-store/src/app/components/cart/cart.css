@@ -1,0 +1,27 @@
+/* Cart styles */
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #f0f0f2;
+  padding: 1rem 1.25rem;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item img {
+  border-radius: 8px;
+  background: var(--muted-bg);
+}
+
+.list-group-item .btn-outline-danger {
+  border-color: rgba(255,59,48,0.08);
+  color: var(--danger-color);
+}
+
+.checkout-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

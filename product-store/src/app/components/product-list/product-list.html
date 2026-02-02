@@ -1,0 +1,16 @@
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">
+            <i class="bi bi-grid me-2 text-primary"></i>Our Products
+        </h2>
+        <span class="badge bg-secondary">{{ products.length }} items</span>
+    </div>
+
+    <div class="row g-4">
+        @for (product of products; track product.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+        }
+    </div>
+</div>

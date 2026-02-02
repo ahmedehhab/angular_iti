@@ -1,0 +1,12 @@
+
+.navbar-brand {
+  font-size: 1.05rem;
+}
+
+.navbar .nav-link {
+  padding: 0.5rem 0.75rem;
+}
+
+.cart-badge .bi-cart3 {
+  font-size: 1.05rem;
+}
