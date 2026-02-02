@@ -1,0 +1,5 @@
+<div class="container mt-4" style="max-width: 1000px;">
+  <app-input (addTask)="addTask($event)"></app-input>
+
+  <app-list [tasks]="tasks" (deleteTask)="deleteTask($event)"></app-list>
+</div>

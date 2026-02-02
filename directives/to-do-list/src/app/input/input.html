@@ -1,0 +1,16 @@
+<div class="bg-primary text-white p-4 rounded-top mx-auto" style="max-width: 1000px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 fw-bold mb-0">To-Do App!</h1>
+  </div>  
+  <input [(ngModel)]="newTask"
+         name="newTask"
+         type="text" 
+         class="form-control mb-3" 
+         placeholder="Enter new task">
+  
+  <div class="text-end">
+    <button class="btn btn-outline-light px-4" (click)="onAdd()" >
+      Add
+    </button>
+  </div>
+</div>          
