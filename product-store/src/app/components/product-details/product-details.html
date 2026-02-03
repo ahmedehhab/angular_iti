@@ -39,13 +39,13 @@
                 <div class="mb-3">
                     @if (product.discountPercentage > 0) {
                     <div class="d-flex align-items-center gap-2">
-                        <span class="price-original fs-5">{{ product.price | currency:'USD' }}</span>
+                        <span class="price-original fs-5">{{ product.price | egp }}</span>
                         <span class="price-discounted fs-3">{{ product.price | discount:product.discountPercentage |
-                            currency:'USD' }}</span>
+                            egp }}</span>
                         <span class="badge bg-danger">-{{ product.discountPercentage | number:'1.0-0' }}% OFF</span>
                     </div>
                     } @else {
-                    <span class="fs-3 fw-bold text-primary">{{ product.price | currency:'USD' }}</span>
+                    <span class="fs-3 fw-bold text-primary">{{ product.price | egp }}</span>
                     }
                 </div>
 
