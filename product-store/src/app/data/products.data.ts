@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
         category: 'smart phones',
         thumbnail: 'iphone14_1.jpg',
         images: [
-            'iphone14_!.jpg',
+            'iphone14_1.jpg',
             'iphone14.jpg'
         ]
     },
