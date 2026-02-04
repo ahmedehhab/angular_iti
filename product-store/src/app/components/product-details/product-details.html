@@ -5,13 +5,11 @@
     </button>
 
     <div class="row">
-        <!-- Product Images -->
         <div class="col-md-6 mb-4">
-            <div class="card border-0">
-                <img [src]="selectedImage" [alt]="product.title" class="img-fluid product-details-image rounded">
+            <div class="card border-0">    
+,                   <img [src]="selectedImage" [alt]="product.title" class="img-fluid product-details-image rounded">
             </div>
 
-            <!-- Thumbnail Gallery -->
             <div class="d-flex gap-2 mt-3 flex-wrap">
                 @for (image of product.images; track $index) {
                 <img [src]="image" [alt]="product.title" class="thumbnail-img rounded cursor-pointer"
@@ -20,7 +18,6 @@
             </div>
         </div>
 
-        <!-- Product Info -->
         <div class="col-md-6">
             <div class="card border-0 shadow-sm p-4">
                 <span class="badge bg-secondary mb-2" style="width: fit-content;">{{ product.category }}</span>
@@ -39,13 +36,13 @@
                 <div class="mb-3">
                     @if (product.discountPercentage > 0) {
                     <div class="d-flex align-items-center gap-2">
-                        <span class="price-original fs-5">{{ product.price | egp }}</span>
+                        <span class="price-original text-decoration-line-through text-secondary fs-5">{{ product.price | currency:'EGP' }}</span>
                         <span class="price-discounted fs-3">{{ product.price | discount:product.discountPercentage |
-                            egp }}</span>
+                            currency:'EGP' }}</span>
                         <span class="badge bg-danger">-{{ product.discountPercentage | number:'1.0-0' }}% OFF</span>
                     </div>
                     } @else {
-                    <span class="fs-3 fw-bold text-primary">{{ product.price | egp }}</span>
+                    <span class="fs-3 fw-bold text-primary">{{ product.price | currency:'EGP' }}</span>
                     }
                 </div>
 

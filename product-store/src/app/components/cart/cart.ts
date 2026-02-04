@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { Subscription } from 'rxjs';
 import { CurrencyPipe } from '@angular/common';
+import { CartItem } from '../../models/card-item';
 
 @Component({
     selector: 'app-cart',
@@ -12,7 +13,7 @@ import { CurrencyPipe } from '@angular/common';
     styleUrl: './cart.css'
 })
 export class Cart implements OnInit, OnDestroy {
-    cartItems: any[] = [];
+    cartItems: CartItem[] = [];
     private sub: Subscription | undefined;
 
     constructor(private cartService: CartService) { }

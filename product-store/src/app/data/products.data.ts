@@ -10,7 +10,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.8,
         stock: 45,
         brand: 'Apple',
-        category: 'smartphones',
+        category: 'smart phones',
         thumbnail: 'iphone15_pro.jpg',
         images: [
            'iphone15_pro.jpg',
@@ -26,7 +26,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.6,
         stock: 82,
         brand: 'Apple',
-        category: 'smartphones',
+        category: 'smart phones',
         thumbnail: 'iphone15.jpg',
         images: [
         'iphone15.jpg',
@@ -42,7 +42,7 @@ export const PRODUCTS: Product[] = [
         rating: 4.5,
         stock: 110,
         brand: 'Apple',
-        category: 'smartphones',
+        category: 'smart phones',
         thumbnail: 'iphone14_1.jpg',
         images: [
             'iphone14_!.jpg',

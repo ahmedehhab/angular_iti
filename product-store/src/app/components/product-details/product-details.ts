@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CurrencyPipe, DecimalPipe } from '@angular/common';
+import { CurrencyPipe , DecimalPipe } from '@angular/common';
 import { Product } from '../../models/product.interface';
 import { PRODUCTS } from '../../data/products.data';
 import { StarRating } from '../star-rating/star-rating';
 import { DiscountPipe } from '../../pipes/discount.pipe';
-import { EgpPipe } from '../../pipes/egp.pipe';
 import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-product-details',
     standalone: true,
-    imports: [RouterLink, CurrencyPipe, DecimalPipe, StarRating, DiscountPipe, EgpPipe],
+    imports: [RouterLink, DecimalPipe, StarRating, DiscountPipe,CurrencyPipe],
     templateUrl: './product-details.html',
     styleUrl: './product-details.css'
 })

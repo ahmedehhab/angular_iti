@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from '../models/product.interface';
+import { CartItem } from '../models/card-item';
 @Injectable({ providedIn: 'root' })
 export class CartService {
-    private items: any[] = [];
-    private itemsSubject = new BehaviorSubject<any[]>([]);
-    items$ = this.itemsSubject.asObservable();
+    private items: CartItem[] = [];
+    private itemsSubject!:BehaviorSubject<CartItem[]> ;
+    items$ !:Observable<CartItem[]> ;
 
-    private countSubject = new BehaviorSubject<number>(0);
-    count$ = this.countSubject.asObservable();
+    private countSubject!:BehaviorSubject<number> ; 
+    count$ !:Observable<number>;  
 
     constructor() {
         const saved = localStorage.getItem('cart');
@@ -18,9 +19,16 @@ export class CartService {
             } catch {
                 this.items = [];
             }
+            }
+
+            this.itemsSubject=new BehaviorSubject(this.items);
+            this.items$=this.itemsSubject.asObservable();
+
+            this.countSubject=new BehaviorSubject<number>(0);
+            this.count$=this.countSubject.asObservable();
+
             this.itemsSubject.next(this.items);
             this.countSubject.next(this.getCount());
-        }
     }
 
     private save() {
@@ -29,10 +37,10 @@ export class CartService {
         this.countSubject.next(this.getCount());
     }
 
-    addItem(product: any) {
-        const existing = this.items.find(i => i.id === product.id);
+    addItem(product: Product) {
+        const existing :CartItem |undefined = this.items.find(i => i.id === product.id);
         if (existing) {
-            existing.quantity = (existing.quantity || 1) + 1;
+            existing.quantity++;
         } else {
             this.items.push({ ...product, quantity: 1 });
         }
@@ -50,8 +58,7 @@ export class CartService {
     }
 
     getItems() {
-        // return a copy to avoid accidental mutation
-        return JSON.parse(JSON.stringify(this.items));
+        return  [...this.items];
     }
 
     getCount() {
