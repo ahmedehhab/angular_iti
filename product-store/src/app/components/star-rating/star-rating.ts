@@ -22,12 +22,12 @@ import { DecimalPipe } from '@angular/common';
     styles: []
 })
 export class StarRating {
-    @Input({ required: true }) rating: number = 0;
+    @Input({ required: true }) rating: number |undefined = 0;
 
     get stars(): string[] {
         const result: string[] = [];
-        const fullStars = Math.floor(this.rating);
-        const hasHalfStar = this.rating % 1 >= 0.5;
+        const fullStars = Math.floor(this.rating || 0 );
+        const hasHalfStar = this.rating || 0 % 1 >= 0.5;
 
         for (let i = 0; i < fullStars; i++) {
             result.push('full');

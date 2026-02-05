@@ -3,14 +3,39 @@
         <h2 class="fw-bold">
             <i class="bi bi-grid me-2 text-primary"></i>Our Products
         </h2>
-        <span class="badge bg-secondary">{{ products.length }} items</span>
+        <span class="badge bg-secondary">{{ totalProducts() }} total items</span>
     </div>
 
     <div class="row g-4">
-        @for (product of products; track product.id) {
+        @for (product of products(); track $index) {
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <app-product-card [product]="product"></app-product-card>
         </div>
+        } @empty {
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted">Loading products...</p>
+            </div>
         }
     </div>
+
+    <nav aria-label="Product pagination" class="mt-5 d-flex justify-content-center">
+        <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <button class="page-link" (click)="changePage(currentPage - 1)">
+                    <i class="bi bi-chevron-left"></i> Previous
+                </button>
+            </li>
+
+            <li class="page-item active">
+                <span class="page-link">Page {{ currentPage }}</span>
+            </li>
+
+            <li class="page-item" [class.disabled]="(currentPage * pageSize) >= totalProducts()">
+                <button class="page-link" (click)="changePage(currentPage + 1)">
+                    Next <i class="bi bi-chevron-right"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
 </div>

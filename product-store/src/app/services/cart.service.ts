@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Product } from '../models/product.interface';
+import { Iproduct } from '../models/product.interface';
 import { CartItem } from '../models/card-item';
 @Injectable({ providedIn: 'root' })
 export class CartService {
@@ -37,7 +37,7 @@ export class CartService {
         this.countSubject.next(this.getCount());
     }
 
-    addItem(product: Product) {
+    addItem(product: Iproduct) {
         const existing :CartItem |undefined = this.items.find(i => i.id === product.id);
         if (existing) {
             existing.quantity++;
@@ -63,5 +63,10 @@ export class CartService {
 
     getCount() {
         return this.items.reduce((sum, i) => sum + (i.quantity || 1), 0);
+    }
+
+    getQuantity(productId: number): number {
+    const item = this.items.find(i => i.id === productId);
+    return item ? item.quantity : 0;
     }
 }

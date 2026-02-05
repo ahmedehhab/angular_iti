@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,signal} from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CurrencyPipe , DecimalPipe } from '@angular/common';
-import { Product } from '../../models/product.interface';
-import { PRODUCTS } from '../../data/products.data';
+import { Iproduct } from '../../models/product.interface';
 import { StarRating } from '../star-rating/star-rating';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { CartService } from '../../services/cart.service';
+import { Product } from '../../services/product';
 
 @Component({
     selector: 'app-product-details',
@@ -15,34 +15,36 @@ import { CartService } from '../../services/cart.service';
     styleUrl: './product-details.css'
 })
 export class ProductDetails implements OnInit {
-    product: Product | undefined;
+   product = signal<Iproduct | undefined>(undefined);
     selectedImage: string = '';
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private cartService: CartService
+        private cartService: CartService,
+        private productServe:Product
     ) { }
 
     ngOnInit(): void {
         const id = Number(this.route.snapshot.paramMap.get('id'));
-        this.product = PRODUCTS.find(p => p.id === id);
-
-        if (this.product) {
-            this.selectedImage = this.product.images[0] || this.product.thumbnail;
-        }
+        this.productServe.getProductById(id).subscribe(p => {
+        this.product.set(p);
+        this.selectedImage = p.images?.[0] || p.thumbnail; 
+    });
+    
     }
 
-    selectImage(image: string): void {
-        this.selectedImage = image;
-    }
+  selectImage(image: string): void {
+    this.selectedImage = image;
+}
 
-    addToCart(): void {
-        if (this.product) {
-            this.cartService.addItem(this.product);
-            alert(`${this.product.title} added to cart!`);
-        }
+addToCart(): void {
+    const p = this.product(); 
+    if (p) {
+        this.cartService.addItem(p);
+        alert(`${p.title} added to cart!`);
     }
+}
 
     goBack(): void {
         this.router.navigate(['/products']);
