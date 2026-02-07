@@ -40,11 +40,16 @@ export class CartService {
     addItem(product: Iproduct) {
         const existing :CartItem |undefined = this.items.find(i => i.id === product.id);
         if (existing) {
+            if(existing.quantity+1 >existing.stock){
+                alert(`Cannot add more than ${existing.stock} items to the cart.`);
+                return;
+            }
             existing.quantity++;
         } else {
             this.items.push({ ...product, quantity: 1 });
         }
         this.save();
+        alert(`${product.title} added to cart!`);
     }
 
     removeItem(productId: number) {
@@ -64,9 +69,5 @@ export class CartService {
     getCount() {
         return this.items.reduce((sum, i) => sum + (i.quantity || 1), 0);
     }
-
-    getQuantity(productId: number): number {
-    const item = this.items.find(i => i.id === productId);
-    return item ? item.quantity : 0;
-    }
+    
 }

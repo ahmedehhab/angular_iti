@@ -22,13 +22,8 @@ export class ProductCard {
     }
     addToCart(event: Event): void {
         event.stopPropagation();
-        const currentQuantity = this.cartService.getQuantity(this.product.id);
-        if (currentQuantity + 1 > this.product.stock) {
-         alert(`Cannot add more than ${this.product.stock} items to the cart.`);
-         return;
-    }
         this.cartService.addItem(this.product);
-        alert(`${this.product.title} added to cart!`);
+        
     }
 }
 

@@ -10,7 +10,7 @@ import { Product } from '../../services/product';
 @Component({
     selector: 'app-product-details',
     standalone: true,
-    imports: [RouterLink, DecimalPipe, StarRating, DiscountPipe,CurrencyPipe],
+    imports: [ DecimalPipe, StarRating, DiscountPipe,CurrencyPipe],
     templateUrl: './product-details.html',
     styleUrl: './product-details.css'
 })
@@ -42,7 +42,6 @@ addToCart(): void {
     const p = this.product(); 
     if (p) {
         this.cartService.addItem(p);
-        alert(`${p.title} added to cart!`);
     }
 }
 
